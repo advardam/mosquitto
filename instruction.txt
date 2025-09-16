@@ -1,0 +1,20 @@
+[Run on both Raspberry Pis:]
+sudo apt update
+sudo apt install -y mosquitto mosquitto-clients
+
+[On broker Pi, enable Mosquitto as a service]
+sudo systemctl enable mosquitto
+sudo systemctl start mosquitto
+
+[On the Pi that will act as the server, check IP]
+hostname -I
+
+[On Client Pi (replace 192.168.1.50 with your broker’s IP)]
+mosquitto_sub -h 192.168.1.50 -t "test/topic"
+
+[On Broker Pi or another client, publish a message]
+mosquitto_pub -h 192.168.1.50 -t "test/topic" -m "Hello from Pi1"
+
+[Install Python MQTT library]
+pip3 install paho-mqtt --break-system-packages
+
