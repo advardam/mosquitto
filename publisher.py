@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-BROKER = "192.168.1.50"  # Replace with broker Pi IP
+BROKER = "127.0.0.1"  # Replace with broker Pi IP
 TOPIC = "test/topic"
 
 client = mqtt.Client()
@@ -10,3 +10,4 @@ while True:
     msg = input("Enter message to send: ")
     client.publish(TOPIC, msg)
     print("Message sent!")
+
