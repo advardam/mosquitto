@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-BROKER = "192.168.1.50"  # Replace with broker Pi IP
+BROKER = "127.0.0.1"  # Replace with broker Pi IP
 TOPIC = "test/topic"
 
 def on_message(client, userdata, msg):
@@ -14,3 +14,4 @@ client.subscribe(TOPIC)
 print("Listening for messages...")
 
 client.loop_forever()
+
